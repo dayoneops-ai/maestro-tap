@@ -1,14 +1,24 @@
-class Maestro < Formula
-  desc "Description of Maestro"
+cask "maestro" do
+  version "1.0.0"
+  sha256 "d2bf8bfd04824fde24ad40c34ffbfb972b7e2af4221d52439206cc49e38df532"
+  url "https://github.com/dayoneops-ai/maestro/releases/download/v1.0.0/maestro-v1.0.0.tar.gz" # Replace with the correct URL
+
+  name "Maestro"
   homepage "https://github.com/dayoneops-ai/maestro"
-  url "https://github.com/dayoneops-ai/maestro/archive/v1.0.0.tar.gz"
-  sha256 "checksum" # Calculate the actual SHA-256 checksum
 
-  def install
-    # Add build instructions here
+  app "Maestro.app" # Replace with the actual app name if it's different
 
-    # Install the binary: this is a go binary
-    bin.install "maestro"
-    mv bin/"maestro", bin/"maestro-1.0.0"
+  auto_updates false # Set to true if the app supports auto-updates
+
+  uninstall rmdir: "/usr/local/Caskroom/maestro"
+
+  caveats do
+    # Add any additional instructions here
   end
+
+  zap trash: [
+    "~/Library/Application Support/Maestro",
+    "~/Library/Logs/Maestro",
+    "~/Library/Preferences/com.example.maestro.plist", # Replace with the actual plist name if needed
+  ]
 end
