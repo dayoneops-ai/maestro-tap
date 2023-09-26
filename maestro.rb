@@ -1,5 +1,5 @@
 Class Maestro < Formula
-  desc "A command line tool for managing your Maestro deployments"
+  desc "A command line tool for managing your deployments"
   homepage "https://github.com/dayoneops-ai/maestro"
   baseurl "https://github.com/dayoneops-ai/maestro/releases/tag/v1.0.0"
   version "1.0.0"
