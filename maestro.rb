@@ -1,7 +1,7 @@
 cask "maestro" do
   version "1.0.0"
   sha256 "d2bf8bfd04824fde24ad40c34ffbfb972b7e2af4221d52439206cc49e38df532"
-  url "https://github.com/dayoneops-ai/maestro/releases/download/v1.0.0/maestro-v1.0.0.tar.gz" # Replace with the correct URL
+  url "https://github.com/dayoneops-ai/maestro/releases/v1.0.0"
 
   name "Maestro"
   homepage "https://github.com/dayoneops-ai/maestro"
