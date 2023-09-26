@@ -1,24 +1,21 @@
-cask "maestro" do
+Class Maestro < Formula
+  desc "A command line tool for managing your Maestro deployments"
+  homepage "https://github.com/dayoneops-ai/maestro"
+  baseurl "https://github.com/dayoneops-ai/maestro/releases/tag/v1.0.0"
   version "1.0.0"
   sha256 "d2bf8bfd04824fde24ad40c34ffbfb972b7e2af4221d52439206cc49e38df532"
-  url "https://github.com/dayoneops-ai/maestro/releases/v1.0.0"
 
-  name "Maestro"
-  homepage "https://github.com/dayoneops-ai/maestro"
+  depends_on "go" => :build
 
-  app "Maestro.app" # Replace with the actual app name if it's different
+  @@bin_name = "maestro-" + kernel + "-amd64"
+  url baseurl + "/v1.0.0/" + @@bin_name
 
-  auto_updates false # Set to true if the app supports auto-updates
-
-  uninstall rmdir: "/usr/local/Caskroom/maestro"
-
-  caveats do
-    # Add any additional instructions here
+  def install
+    bin.install @@bin_name
+    mv bin/@@bin_name.to_s, bin/"maestro"
   end
 
-  zap trash: [
-    "~/Library/Application Support/Maestro",
-    "~/Library/Logs/Maestro",
-    "~/Library/Preferences/com.example.maestro.plist", # Replace with the actual plist name if needed
-  ]
+  test do
+    system "false"
+  end
 end
